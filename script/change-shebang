@@ -14,7 +14,7 @@ change-shebang - change shebang lines for relocatable perl
 
 =head1 SYNOPSIS
 
-    > chagne-shebang [OPTIONS] FILES
+    > change-shebang [OPTIONS] FILES
 
     Options:
     --force, -f    skip dialogs that confirm the files to be changed
@@ -25,7 +25,7 @@ change-shebang - change shebang lines for relocatable perl
     Type `perldoc App::ChangeShebang` for the more detailed explanation
 
     Examples:
-    > chagne-shebang /path/to/bin/*
+    > change-shebang /path/to/bin/*
     > change-shebang --force --quiet /path/to/bin/cpanm
 
 =head1 AUTHOR

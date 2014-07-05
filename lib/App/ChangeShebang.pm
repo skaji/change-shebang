@@ -86,7 +86,7 @@ App::ChangeShebang - change shebang lines for relocatable perl
 
 =head1 SYNOPSIS
 
-    > chage-shebang /path/to/bin/script.pl
+    > change-shebang /path/to/bin/script.pl
 
     > head -3 /path/to/bin/script.pl
     #!/bin/sh
@@ -95,7 +95,7 @@ App::ChangeShebang - change shebang lines for relocatable perl
 
 =head1 DESCRIPTION
 
-L<chage-shebang> changes shebang lines from
+L<change-shebang> changes shebang lines from
 
     #!/path/to/bin/perl
 

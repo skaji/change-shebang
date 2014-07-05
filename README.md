@@ -4,7 +4,7 @@ App::ChangeShebang - change shebang lines for relocatable perl
 
 # SYNOPSIS
 
-    > chage-shebang /path/to/bin/script.pl
+    > change-shebang /path/to/bin/script.pl
 
     > head -3 /path/to/bin/script.pl
     #!/bin/sh
@@ -13,7 +13,7 @@ App::ChangeShebang - change shebang lines for relocatable perl
 
 # DESCRIPTION
 
-[chage-shebang](https://metacpan.org/pod/chage-shebang) changes shebang lines from
+[change-shebang](https://metacpan.org/pod/change-shebang) changes shebang lines from
 
     #!/path/to/bin/perl
 
