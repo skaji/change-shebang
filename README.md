@@ -41,6 +41,12 @@ A solution of that problem is to replace shebang lines by
 
 which means that scripts will be executed by the perl located in the same directory.
 
+# SEE ALSO
+
+- [Relocatable installations in perl5100delta.pod](https://metacpan.org/pod/distribution/perl/pod/perl5100delta.pod#Relocatable-installations)
+- [https://github.com/shoichikaji/relocatable-perl](https://github.com/shoichikaji/relocatable-perl)
+- [https://github.com/shoichikaji/relocatable-perl-growthforecast](https://github.com/shoichikaji/relocatable-perl-growthforecast)
+
 # LICENSE
 
 Copyright (C) Shoichi Kaji.

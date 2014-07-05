@@ -123,6 +123,17 @@ A solution of that problem is to replace shebang lines by
 
 which means that scripts will be executed by the perl located in the same directory.
 
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Relocatable installations in perl5100delta.pod|https://metacpan.org/pod/distribution/perl/pod/perl5100delta.pod#Relocatable-installations>
+
+=item L<https://github.com/shoichikaji/relocatable-perl>
+
+=item L<https://github.com/shoichikaji/relocatable-perl-growthforecast>
+
+=back
 
 =head1 LICENSE
 
