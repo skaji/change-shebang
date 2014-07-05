@@ -2,6 +2,8 @@ Revision history for Perl extension App-ChangeShebang
 
 {{$NEXT}}
 
+0.02 2014-07-05T16:44:54Z
+
     - fix documentation
 
 0.01 2014-07-05T16:01:03Z
