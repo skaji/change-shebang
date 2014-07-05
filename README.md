@@ -29,7 +29,7 @@ Let's say you build perl with relocatable enabled (`-Duserelocatableinc`).
 Then the shebang lines of executable scripts point at
 the installation time perl binary path.
 
-So if you move your perl direcotry to other places,
+So if you move your perl directory to other places,
 the shebang lines of executable scripts point at a wrong perl binary and
 we cannot execute scripts. Oops!
 
