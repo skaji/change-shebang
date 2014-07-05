@@ -1,0 +1,6 @@
+name = "App-ChangeShebang"
+# badges = ["travis"]
+authority="cpan:SKAJI"
+
+module_maker="ModuleBuild"
+
