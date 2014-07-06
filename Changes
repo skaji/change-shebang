@@ -2,6 +2,8 @@ Revision history for Perl extension App-ChangeShebang
 
 {{$NEXT}}
 
+    - to make sure rename() properly works, make a tempfile in the same directory
+
 0.02 2014-07-05T16:44:54Z
 
     - fix documentation

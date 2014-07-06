@@ -62,7 +62,7 @@ sub change_shebang {
     };
     my $mode = (stat $file)[2];
 
-    my ($tmp_fh, $tmp_name) = tempfile UNLINK => 0;
+    my ($tmp_fh, $tmp_name) = tempfile UNLINK => 0, DIR => dirname($file);
     chmod $mode, $tmp_name;
     print {$tmp_fh} <<'...';
 #!/bin/sh
