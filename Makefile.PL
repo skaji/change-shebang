@@ -12,7 +12,7 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
     NAME     => 'App::ChangeShebang',
     DISTNAME => 'App-ChangeShebang',
-    VERSION  => '0.03',
+    VERSION  => '0.04',
     CONFIGURE_REQUIRES => {
   "ExtUtils::MakeMaker" => 0
 }

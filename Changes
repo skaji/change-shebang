@@ -2,6 +2,11 @@ Revision history for Perl extension App-ChangeShebang
 
 {{$NEXT}}
 
+0.04 2015-05-10T06:24:57Z
+
+    - remove unnecessary "--" for exec perl
+    - remove original shebang as well as "not running under some shell" stuff
+
 0.03 2014-07-06T05:34:18Z
 
     - to make sure rename() properly works, make a tempfile in the same directory
