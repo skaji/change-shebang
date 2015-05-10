@@ -17,7 +17,7 @@ subtest basic1 => sub {
         ->run;
     is slurp("$tempdir/hoge$_.pl"), <<'...' for 1..3;
 #!/bin/sh
-exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
 #!/path/to/perl
 ...
@@ -33,7 +33,7 @@ subtest basic2 => sub {
         ->run;
     is slurp("$tempdir/hoge.pl"), <<'...';
 #!/bin/sh
-exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
 #!/usr/bin/env perl
 ...
@@ -52,7 +52,7 @@ subtest permission => sub {
         ->run;
     is slurp("$tempdir/hoge$_.pl"), <<'...' for 1..3;
 #!/bin/sh
-exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
 #!/path/to/perl
 ...

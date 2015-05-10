@@ -66,7 +66,7 @@ sub change_shebang {
     chmod $mode, $tmp_name;
     print {$tmp_fh} <<'...';
 #!/bin/sh
-exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
 ...
     print {$tmp_fh} $content;
