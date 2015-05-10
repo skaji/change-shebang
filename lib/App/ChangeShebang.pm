@@ -58,8 +58,17 @@ sub change_shebang {
     my ($self, $file) = @_;
     my $content = do {
         open my $fh, "<:raw", $file or die "open $file: $!\n";
-        local $/; <$fh>;
+        my (undef, @content) = <$fh>; # ignore original shebang
+        join "", @content;
     };
+
+    # remove "not running under some shell" stuff
+    $content =~ s{\A
+        \s*
+        eval \s* 'exec [^\n]* \n
+        \s* if \s* 0 [^\n]* \n
+    }{}xsm;
+
     my $mode = (stat $file)[2];
 
     my ($tmp_fh, $tmp_name) = tempfile UNLINK => 0, DIR => dirname($file);

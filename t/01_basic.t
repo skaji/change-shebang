@@ -19,7 +19,6 @@ subtest basic1 => sub {
 #!/bin/sh
 exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
-#!/path/to/perl
 ...
 };
 
@@ -35,7 +34,6 @@ subtest basic2 => sub {
 #!/bin/sh
 exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
-#!/usr/bin/env perl
 ...
     is slurp("$tempdir/hoge.rb"), "#!/usr/bin/ruby\n";
 };
@@ -54,13 +52,41 @@ subtest permission => sub {
 #!/bin/sh
 exec "$(dirname "$0")"/perl -x "$0" "$@"
 #!perl
-#!/path/to/perl
 ...
     is( (stat "$tempdir/hoge1.pl")[2] & 07777, 0755 );
     is( (stat "$tempdir/hoge2.pl")[2] & 07777, 0555 );
     is( (stat "$tempdir/hoge3.pl")[2] & 07777, 0500 );
 };
 
+subtest 'remove "not running under some shell"' => sub {
+    my $tempdir = tempdir;
+    spew "$tempdir/hoge1.pl", <<'...';
+#!/usr/bin/perl
 
+eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+use strict;
+...
+    spew "$tempdir/hoge2.pl", <<'...';
+#!/usr/bin/perl
+
+eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+
+use strict;
+...
+
+    App::ChangeShebang->new
+        ->parse_options("-f", "-q", map "$tempdir/hoge$_.pl", 1..2)
+        ->run;
+    my $expect = <<'...';
+#!/bin/sh
+exec "$(dirname "$0")"/perl -x "$0" "$@"
+#!perl
+...
+
+    is slurp("$tempdir/hoge1.pl"), $expect . "use strict;\n";
+    is slurp("$tempdir/hoge2.pl"), $expect . "\nuse strict;\n";
+};
 
 done_testing;
