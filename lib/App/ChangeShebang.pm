@@ -9,7 +9,7 @@ use File::Basename 'dirname';
 use File::Temp 'tempfile';
 sub prompt { ExtUtils::MakeMaker::prompt(@_) }
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub new {
     my $class = shift;
