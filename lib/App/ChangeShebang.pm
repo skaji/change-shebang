@@ -37,6 +37,7 @@ sub parse_options {
 sub run {
     my $self = shift;
     for my $file (@{ $self->{file} }) {
+        next unless -f $file && !-l $file;
         next unless $self->is_perl_shebang( $file );
         unless ($self->{force}) {
             my $anser = prompt "change shebang line of $file? (y/N)", "N";
@@ -54,20 +55,27 @@ sub is_perl_shebang {
     return $first =~ /^#!([^\n]*)perl/ ? 1 : 0;
 }
 
+my $remove = do {
+    my $s = qr/[ \t]*/;
+    my $w = qr/[^\n]*/;
+    my $running_under_some_shell = qr/\n*
+        $s eval $s ['"] exec $w \n
+            $s if $s (?:0|\$running_under_some_shell) $w \n
+    /xsm;
+    my $shebang = qr/\n*
+        \#! $w \n
+    /xsm;
+    qr/\A(?:$running_under_some_shell|$shebang)+/;
+};
+
 sub change_shebang {
     my ($self, $file) = @_;
     my $content = do {
         open my $fh, "<:raw", $file or die "open $file: $!\n";
-        my (undef, @content) = <$fh>; # ignore original shebang
-        join "", @content;
+        local $/; <$fh>;
     };
 
-    # remove "not running under some shell" stuff
-    $content =~ s{\A
-        \s*
-        eval \s* 'exec [^\n]* \n
-        \s* if \s* 0 [^\n]* \n
-    }{}xsm;
+    $content =~ s/$remove//;
 
     my $mode = (stat $file)[2];
 

@@ -75,9 +75,27 @@ eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
 
 use strict;
 ...
+spew "$tempdir/hoge3.pl", <<'...';
+#!/usr/bin/perl
+    eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+    if $running_under_some_shell;
+#!/usr/bin/perl
+use strict;
+...
+spew "$tempdir/hoge4.pl", <<'...';
+#!/usr/bin/perl
+
+eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+    eval 'exec perl -S $0 "$@"'
+        if 0;
+
+#!/usr/local/bin/perl
+use strict;
+...
 
     App::ChangeShebang->new
-        ->parse_options("-f", "-q", map "$tempdir/hoge$_.pl", 1..2)
+        ->parse_options("-f", "-q", map "$tempdir/hoge$_.pl", 1..4)
         ->run;
     my $expect = <<'...';
 #!/bin/sh
@@ -87,6 +105,8 @@ exec "$(dirname "$0")"/perl -x "$0" "$@"
 
     is slurp("$tempdir/hoge1.pl"), $expect . "use strict;\n";
     is slurp("$tempdir/hoge2.pl"), $expect . "\nuse strict;\n";
+    is slurp("$tempdir/hoge3.pl"), $expect . "use strict;\n";
+    is slurp("$tempdir/hoge4.pl"), $expect . "use strict;\n";
 };
 
 done_testing;
