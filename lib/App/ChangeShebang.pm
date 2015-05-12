@@ -107,7 +107,7 @@ App::ChangeShebang - change shebang lines for relocatable perl
 
     > head -3 /path/to/bin/script.pl
     #!/bin/sh
-    exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+    exec "$(dirname "$0")"/perl -x "$0" "$@"
     #!perl
 
 =head1 DESCRIPTION
@@ -119,7 +119,7 @@ L<change-shebang> changes shebang lines from
 to
 
     #!/bin/sh
-    exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+    exec "$(dirname "$0")"/perl -x "$0" "$@"
     #!perl
 
 Why do we need this?
@@ -135,7 +135,7 @@ we cannot execute scripts. Oops!
 A solution of that problem is to replace shebang lines by
 
     #!/bin/sh
-    exec "$(dirname "$0")"/perl -x -- "$0" "$@"
+    exec "$(dirname "$0")"/perl -x "$0" "$@"
     #!perl
 
 which means that scripts will be executed by the perl located in the same directory.
