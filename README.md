@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/skaji/change-shebang.svg?branch=master)](https://travis-ci.org/skaji/change-shebang)
+
 # NAME
 
 App::ChangeShebang - change shebang lines for relocatable perl
@@ -47,12 +49,13 @@ which means that scripts will be executed by the perl located in the same direct
 - [https://github.com/shoichikaji/relocatable-perl](https://github.com/shoichikaji/relocatable-perl)
 - [https://github.com/shoichikaji/relocatable-perl-growthforecast](https://github.com/shoichikaji/relocatable-perl-growthforecast)
 
-# LICENSE
-
-Copyright (C) Shoichi Kaji.
-
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
-
 # AUTHOR
 
 Shoichi Kaji <skaji@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+Copyright 2018 Shoichi Kaji <skaji@cpan.org>
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

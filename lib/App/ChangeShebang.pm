@@ -152,15 +152,16 @@ which means that scripts will be executed by the perl located in the same direct
 
 =back
 
-=head1 LICENSE
-
-Copyright (C) Shoichi Kaji.
-
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
-
 =head1 AUTHOR
 
-Shoichi Kaji E<lt>skaji@cpan.orgE<gt>
+Shoichi Kaji <skaji@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2018 Shoichi Kaji <skaji@cpan.org>
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 
