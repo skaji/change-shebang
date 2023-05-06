@@ -1,4 +1,4 @@
-package App::ChangeShebang 0.07;
+package App::ChangeShebang 0.10;
 use v5.16;
 use warnings;
 
