@@ -21,12 +21,8 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008001"
-         }
-      },
-      "test" : {
-         "requires" : {
-            "Test::More" : "0.98"
+            "Getopt::Long" : "2.39",
+            "perl" : "v5.16.0"
          }
       }
    },
