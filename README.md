@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/skaji/change-shebang.svg?branch=master)](https://travis-ci.org/skaji/change-shebang)
+[![Actions Status](https://github.com/skaji/change-shebang/actions/workflows/test.yml/badge.svg)](https://github.com/skaji/change-shebang/actions)
 
 # NAME
 
